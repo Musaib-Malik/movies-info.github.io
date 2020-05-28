@@ -85,7 +85,7 @@ async function getMovie() {
         ${movie.Plot}
         </p>
         <hr>
-        <a href="http://imdb.com/title/${movie.imdbID}" target="_blank" class="btn btn-primary mr-3 mb-3 ml-3">View IMDB</a>
+        <a href="https://imdb.com/title/${movie.imdbID}" target="_blank" class="btn btn-primary mr-3 mb-3 ml-3">View IMDB</a>
 
         <a href="index.html" class="btn btn-success mb-3">Go back to search</a>
       </div>
