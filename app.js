@@ -41,7 +41,7 @@ async function getMovie() {
   let movieID = sessionStorage.getItem("movieId");
 
   const response = await fetch(
-    `http://www.omdbapi.com?apikey=6f676ab6&i=${movieID}`
+    `https://www.omdbapi.com?apikey=6f676ab6&i=${movieID}`
   );
 
   const movie = await response.json();
