@@ -1,19 +1,18 @@
 // UI Variables
-const movieName = document.getElementById('movie-name');
-const result = document.querySelector('#movies');
+const movieName = document.getElementById("movie-name");
+const result = document.querySelector("#movies");
 
 // Event Handler
-movieName.addEventListener('keyup', getMovies);
+movieName.addEventListener("keyup", getMovies);
 
 // Get Movies
 async function getMovies() {
-
-  const response = await fetch(`http://www.omdbapi.com?apikey=6f676ab6&s=${movieName.value}`).catch((err) => {
-    alert('PLease check your internet connection')
-  })
+  const response = await fetch(
+    `http://www.omdbapi.com?apikey=6f676ab6&s=${movieName.value}`
+  );
 
   const data = await response.json();
-  let output = '';
+  let output = "";
   data.Search.forEach((movie) => {
     output += `
       <div class="col-md-3">
@@ -23,41 +22,27 @@ async function getMovies() {
           <a onclick="movieSelected('${movie.imdbID}')" class="btn btn-primary mb-3" href="#">Movie Details</a>
         </div>
       </div>
-    `
-  })
+    `;
+  });
 
-  document.querySelector('footer').style.position = 'static';
+  document.querySelector("footer").style.position = "static";
   result.innerHTML = output;
-}
-
-// Alert function
-function alert(message) {
-  const errorDiv = document.createElement('div');
-  errorDiv.className = 'alert alert-danger';
-  errorDiv.appendChild(document.createTextNode(message));
-
-  const header = document.querySelector('header');
-
-  header.insertAdjacentElement('afterend', errorDiv);
-
-
-  setTimeout(() => {
-    document.querySelector('.alert').remove();
-  }, 400)
 }
 
 // Set Session Storage
 function movieSelected(id) {
-  sessionStorage.setItem('movieId', id);
-  window.location = 'movie.html';
+  sessionStorage.setItem("movieId", id);
+  window.location = "movie.html";
   return false;
 }
 
 // Get Session Storage
 async function getMovie() {
-  let movieID = sessionStorage.getItem('movieId');
+  let movieID = sessionStorage.getItem("movieId");
 
-  const response = await fetch(`http://www.omdbapi.com?apikey=6f676ab6&i=${movieID}`);
+  const response = await fetch(
+    `http://www.omdbapi.com?apikey=6f676ab6&i=${movieID}`
+  );
 
   const movie = await response.json();
 
@@ -105,7 +90,7 @@ async function getMovie() {
         <a href="index.html" class="btn btn-success mb-3">Go back to search</a>
       </div>
     </div>
-  `
-  document.querySelector('footer').style.position = 'static';
-  document.getElementById('movie').innerHTML = output;
+  `;
+  document.querySelector("footer").style.position = "static";
+  document.getElementById("movie").innerHTML = output;
 }
