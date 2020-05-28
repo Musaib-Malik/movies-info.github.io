@@ -1,0 +1,128 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #121212;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: white;
+  font-family: Montserrat;
+  font-family: Asap;
+}
+
+p {
+  color: grey;
+}
+
+header {
+  padding: 1em;
+  margin: 1em;
+  border-bottom: 1px whitesmoke solid;
+}
+
+header:hover,
+header:active {
+  box-shadow: 2px 2px 10px 3px grey;
+  border: none;
+}
+
+#header-title {
+  color: white;
+  font-family: Montserrat;
+  font-weight: bold;
+}
+
+#header-para {
+  color: crimson;
+  font-family: Asap;
+  font-weight: 550;
+  word-spacing: 3px;
+  text-decoration: underline;
+}
+
+#movie-name {
+  width: 50%;
+  border-radius: 2px;
+  border: none;
+  padding: 6px;
+  outline: none;
+  font-family: Montserrat;
+  font-weight: 550;
+}
+
+#my-form {
+  margin-top: 2em;
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  padding: 1.5em;
+  width: 100%;
+  background-color: #222;
+  line-height: 1em;
+}
+
+#footer-title {
+  color: floralwhite;
+  font-family: Montserrat;
+  font-weight: bolder;
+  color: darkorange;
+}
+
+#footer-para {
+  color: deepskyblue;
+  margin-bottom: 1em;
+}
+
+#github {
+  color: white;
+  font-size: 40px;
+  margin-right: 12px;
+}
+
+#instagram {
+  color: grey;
+  font-size: 40px;
+}
+
+#movies img,
+#movie img {
+  width: 80%;
+}
+
+.movie-title {
+  color: white;
+  text-align: center;
+}
+
+.list-group-item {
+  background-color: #222;
+  color: white;
+}
+
+@media (min-width: 960px) {
+  #movies .col-md-3 .well {
+    height: 390px;
+  }
+
+  #movies .col-md-3 img {
+    height: 240px;
+  }
+
+}
+
+@media (min-width: 1024px) {
+  #movie-name {
+    width: 40%;
+  }
+}
