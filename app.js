@@ -8,7 +8,7 @@ movieName.addEventListener("keyup", getMovies);
 // Get Movies
 async function getMovies() {
   const response = await fetch(
-    `http://www.omdbapi.com?apikey=6f676ab6&s=${movieName.value}`
+    `https://www.omdbapi.com?apikey=6f676ab6&s=${movieName.value}`
   );
 
   const data = await response.json();
