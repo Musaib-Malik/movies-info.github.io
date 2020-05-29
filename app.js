@@ -3,7 +3,31 @@ const movieName = document.getElementById("movie-name");
 const result = document.querySelector("#movies");
 
 // Event Handler
+window.addEventListener("DOMContentLoaded", getExampleMovies);
 movieName.addEventListener("keyup", getMovies);
+
+async function getExampleMovies() {
+  const res = await fetch(
+    `https://www.omdbapi.com?apikey=6f676ab6&s=Sherlock Holmes`
+  );
+
+  const data = await res.json();
+  let output = "";
+  data.Search.forEach((movie) => {
+    output += `
+      <div class="col-md-3">
+        <div class="well text-center">
+          <img src="${movie.Poster}" class="mt-3 mb-2">
+          <h4 class="movie-title mt-3">${movie.Title}</h4>
+          <a onclick="movieSelected('${movie.imdbID}')" class="btn btn-primary mb-3" href="#">Movie Details</a>
+        </div>
+      </div>
+    `;
+  });
+
+  document.querySelector("footer").style.position = "static";
+  result.innerHTML = output;
+}
 
 // Get Movies
 async function getMovies() {
